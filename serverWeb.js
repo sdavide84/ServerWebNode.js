@@ -41,4 +41,6 @@ var server = http.createServer(cb);
 server.listen(8080, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:1337/');
 
-
+server.on('close', function() {
+  console.log('Server stopped');
+});
