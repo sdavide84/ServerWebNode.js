@@ -15,7 +15,7 @@ var cb = function (req, res) {
 
   if( metodo == 'GET' && page == '/page1' ) {
 
-    var params = querystring.parse(url.parse(req.url).query);
+    var params = querystring.parse(url.parse(req.url, true).query);
     console.log('params:' + JSON.stringify(params));
 
     //risposta
@@ -40,6 +40,9 @@ var server = http.createServer(cb);
 
 server.listen(8080, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:1337/');
+
+
+
 
 server.on('close', function() {
   console.log('Server stopped');
